@@ -5,10 +5,28 @@
  */
 package com.unab.edu.Conexion;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+
 /**
  *
- * @author dayan
+ * @author BetoCalderon
  */
 public class ConexionBD {
+    private Connection coon;
     
+    public ConexionBD()
+    {
+    try{
+        coon = DriverManager.getConnection("jdbc:mysql://localhost/appbanco","root","root");
+        System.out.println("Conectado");
+        
+    }catch (Exception e)
+    {
+        System.out.println("Error de Conexion "+ e);
+    }
+    }
+    public Connection RetornarConexion(){   
+        return coon;   
+    }
 }
