@@ -6,15 +6,18 @@
 package com.unab.edu.Entidades;
 
 import java.sql.Date;
+import lombok.Data;
 
 /**
  *
  * @author BetoCalderon
  */
+@Data
 public class CuentasUsuario extends Usuario {
     private int IdCuentasusuario;
     private double Saldo;
     private int IdUsuario; 
     private int Transaccion;
     private Date fecha;
+
 }
