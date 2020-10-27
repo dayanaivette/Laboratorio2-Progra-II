@@ -19,4 +19,5 @@ public class CuentasUsuario extends Usuario {
     private int IdUsuario; 
     private int Transaccion;
     private Date fecha;
+
 }

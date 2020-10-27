@@ -13,7 +13,11 @@ import java.sql.DriverManager;
  * @author BetoCalderon
  */
 public class ConexionBD {
-    private Connection coon;
+
+    /**
+     *
+     */
+    public Connection coon;
     
     public ConexionBD()
     {

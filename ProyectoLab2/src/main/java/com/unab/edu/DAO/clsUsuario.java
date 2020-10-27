@@ -13,6 +13,8 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+
+
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -22,29 +24,28 @@ import javax.swing.JOptionPane;
  */
 public class clsUsuario {
     ConexionBD conec = new ConexionBD();
-     Connection conectar = con.conexion();
-    private Object con;
-    
-    public List<Usuario> ListaUsuario (String usuario, String pass, int combo){
-        List<Usuario> ListaUsuario= new ArrayList<>();
+     Connection coo = conec.RetornarConexion();
+
+   
+   public ArrayList <Usuario> MostrarUsuario(){
+    ArrayList <Usuario> ListaUsuario = new ArrayList <>();
         
         try{
             
-           CallableStatement stn = conectar.prepareCall("Select * from usuario where usuarios "
-                   + "" + usuario +  "'and Password' " + pass "" + "tipo de Usuario" + combo );
-            
-            
+           CallableStatement stn = coo.prepareCall("Select * from usuario where usuarios ");
+
             ResultSet resultador = Statement.executeQuery();
-            while (resultador.next()) {
                 Usuario user = new Usuario();
+            while (resultador.next()) {
+             
                 user.setIdUsuario(resultador.getInt("idUsuario"));
                 user.setUsuario(resultador.getString("Usuario"));
-                user.setPassword(resultador.getString("Password"));
-                user.setIdTipo(resultador.getInt("tipoUsuario"));
+                user.setPassWord(resultador.getString("Password"));
+                user.setTipoUsuario(resultador.getInt("tipoUsuario"));
 
                 ListaUsuario.add(user);
             }
-            conectar.close();
+            coo.close();
             
         }
         catch(Exception e)
@@ -63,13 +64,14 @@ public class clsUsuario {
         return ListaUsuario;
         
     }
-    public void AgregarUsuario(Usuario user){
+    public void AgregarUsuario(Usuario user, String usuario, String pass, int combo){
        try {
-           CallableStatement Statement = conectar.prepareCall("call SP_I_(?,?,?,?)");
-           Statement.setInt("IdUsuario", user.getIdUSuario());
-           Statement.setString("Usuario", user.getUsuario());
-           Statement.setString("Contraseña", user.getPassword());
-           Statement.setInt("TipoUsuario", user.getTipoUsuario());
+           CallableStatement Statement = coo.prepareCall("Select * from usuario where usuarios ");
+ 
+           Statement.setInt("uIdUsuario", user.getIdUsuario());
+           Statement.setString("uUsuario", user.getUsuario());
+           Statement.setString("uContraseña", user.getPassWord());
+           Statement.setInt("uTipoUsuario", user.getTipoUsuario());
 
            Statement.execute();
              JOptionPane.showMessageDialog(null,"USuario Guardado");
@@ -79,7 +81,36 @@ public class clsUsuario {
                    
        }}
     
-    
+    public void BorrarUsuario(Usuario user) {
+        try {
+            CallableStatement Statement = coo.prepareCall("(?)");
+            Statement.setInt("UIdUsuario", user.getIdUsuario());
+            Statement.execute();
+            JOptionPane.showMessageDialog(null, "Usuario Eliminado");
+            coo.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+
     }
+    public void ActualizarUsuario(Usuario user){
+       try {
+           
+           CallableStatement Statement = coo.prepareCall("");
+           Statement.setInt("uIdUsuario", user.getIdUsuario());
+           Statement.setString("uUsuario", user.getUsuario());
+           Statement.setString("uContraseña", user.getPassWord());
+           Statement.setInt("uTipoUsuario", user.getTipoUsuario());
+
+           Statement.execute();
+             JOptionPane.showMessageDialog(null,"USuario Actualizado");
+           
+       } catch (Exception e) {
+           JOptionPane.showMessageDialog(null,e);
+       }
+    }
+}
+    
+    
     
 
