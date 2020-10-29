@@ -5,10 +5,6 @@
  */
 package com.unab.edu.Vistas;
 
-import com.unab.edu.DAO.clsUsuario;
-import com.unab.edu.Entidades.Usuario;
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author dayan
@@ -20,7 +16,6 @@ public class FrmLogin extends javax.swing.JFrame {
      */
     public FrmLogin() {
         initComponents();
-        setLocationRelativeTo(this);
     }
 
     /**
@@ -151,22 +146,11 @@ public class FrmLogin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarLoginMouseClicked
-        String botones[] = {"Cerrar", "Cancelar"};
-        int opcion = JOptionPane.showOptionDialog(this, "¿Quieres salir?", "Confirmar", 0, 0, null, botones, this);
-
-        if (opcion == JOptionPane.YES_OPTION) {
-            System.exit(0);
-        } else if (opcion == JOptionPane.NO_OPTION) {
-            System.out.println("Cancelar");
-        }
+   
     }//GEN-LAST:event_btnCerrarLoginMouseClicked
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {                                          
-        clsUsuario usuario = new clsUsuario();
-        Usuario usu = new Usuario();
-        usu.setUsuario(txtUsuario.getText());
-        usu.setPassword(txtClave.getText());
-        int tipo = 0;
+        
         
     }                                         
 

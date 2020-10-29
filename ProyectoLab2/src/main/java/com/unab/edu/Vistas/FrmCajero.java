@@ -5,8 +5,6 @@
  */
 package com.unab.edu.Vistas;
 
-import com.unab.edu.DAO.clsCuentasUsuario;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -17,44 +15,12 @@ public class FrmCajero extends javax.swing.JFrame {
     /**
      * Creates new form FrmCajero
      */
-    double saldo = 0;
-    Usuario user;
+   
     public FrmCajero() {
-        
         initComponents();
-        //idUsuario = 2;
-        user=Login.usua;
-        txtUsuario.setText(user.getUsuario());
-        MostrarTransacciones();
-        setLocationRelativeTo(this);
-    
     }
     
-    void MostrarTransacciones() {
-        String TITULOS[] = {"SALDO", "TRANSACCIÓN", "FECHA"};
-        DefaultTableModel modeloTabla = new DefaultTableModel(null, TITULOS);
-    clsCuentasUsuario transacciones = new clsCuentasUsuario();
-        var listado = transacciones.Transacciones(user);
-        String filas[] = new String[3];
-        double abonos = 0;
-        double cargos = 0;
-        for (var iterarDatos : listado) {
-            filas[0] = String.valueOf(iterarDatos.getSaldo());
-            if (iterarDatos.getTransaccion() == 1) {
-                filas[1] = "Abono";
-                abonos += iterarDatos.getSaldo();
-            } else {
-                filas[1] = "Cargo";
-                cargos += iterarDatos.getSaldo();
-            }
-            filas[2] = String.valueOf(iterarDatos.getFecha());
-            //Agregar a la fila
-            modeloTabla.addRow(filas);
-        }
-        saldo = abonos - cargos;
-        tbTransacciones.setModel(modeloTabla);
-        lblSaldo.setText(String.valueOf(saldo));
-    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
