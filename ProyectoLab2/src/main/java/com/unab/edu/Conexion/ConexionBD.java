@@ -17,12 +17,12 @@ public class ConexionBD {
     /**
      *
      */
-    public Connection coon;
+    public Connection con;
     
     public ConexionBD()
     {
     try{
-        coon = DriverManager.getConnection("jdbc:mysql://localhost/appbanco","root","root");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/appbanco","root","root");
         System.out.println("Conectado");
         
     }catch (Exception e)
@@ -31,6 +31,6 @@ public class ConexionBD {
     }
     }
     public Connection RetornarConexion(){   
-        return coon;   
+        return con;   
     }
 }
