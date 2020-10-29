@@ -5,6 +5,8 @@
  */
 package com.unab.edu.Vistas;
 
+import com.unab.edu.DAO.clsUsuario;
+import com.unab.edu.Entidades.Usuario;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +20,7 @@ public class FrmLogin extends javax.swing.JFrame {
      */
     public FrmLogin() {
         initComponents();
+        setLocationRelativeTo(this);
     }
 
     /**
@@ -29,138 +32,125 @@ public class FrmLogin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jScrollBar1 = new javax.swing.JScrollBar();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        txtUsuario = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        txtClave = new javax.swing.JTextField();
-        btnEntrar = new javax.swing.JButton();
-        cmbUsuario = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
-        lblCerrar = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        btnCerrarLogin = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-
-        jRadioButton1.setText("jRadioButton1");
+        jLabel6 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        txtUsuario = new javax.swing.JTextField();
+        txtClave = new javax.swing.JTextField();
+        cmbTipoUsuario = new javax.swing.JComboBox<>();
+        btnEntrar = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setLocationByPlatform(true);
         setUndecorated(true);
+        setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel1.setBackground(new java.awt.Color(8, 163, 8));
-        jLabel1.setFont(new java.awt.Font("Gadugi", 1, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(8, 163, 8));
-        jLabel1.setText("Iniciar Sesión");
-
-        jLabel2.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(8, 163, 8));
-        jLabel2.setText("Usuario");
-
-        txtUsuario.setBackground(new java.awt.Color(228, 228, 228));
-        txtUsuario.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        txtUsuario.setBorder(null);
-
-        jLabel3.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(8, 163, 8));
-        jLabel3.setText("Clave");
-
-        txtClave.setBackground(new java.awt.Color(228, 228, 228));
-        txtClave.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        txtClave.setBorder(null);
-
-        btnEntrar.setBackground(new java.awt.Color(8, 163, 8));
-        btnEntrar.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        btnEntrar.setForeground(new java.awt.Color(255, 255, 255));
-        btnEntrar.setText("ENTRAR");
-        btnEntrar.setBorder(null);
-        btnEntrar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEntrarActionPerformed(evt);
-            }
-        });
-
-        cmbUsuario.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
-        cmbUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        cmbUsuario.setBorder(null);
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(139, 139, 139)
-                        .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(42, 42, 42)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel1)
-                            .addComponent(txtClave)
-                            .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(jLabel2))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(13, 13, 13)
-                                .addComponent(jLabel3))
-                            .addComponent(cmbUsuario, 0, 297, Short.MAX_VALUE))))
-                .addContainerGap(91, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabel1)
-                .addGap(41, 41, 41)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(cmbUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(btnEntrar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48))
-        );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 430, 430));
 
         jPanel2.setBackground(new java.awt.Color(51, 255, 51));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblCerrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cancelar(3).png"))); // NOI18N
-        lblCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnCerrarLogin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cancelar(3).png"))); // NOI18N
+        btnCerrarLogin.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lblCerrarMouseClicked(evt);
+                btnCerrarLoginMouseClicked(evt);
             }
         });
-        jPanel2.add(lblCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 0, 30, 40));
+        jPanel2.add(btnCerrarLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 20, 40));
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/banco.png"))); // NOI18N
-        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 140, 140));
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/banco.png"))); // NOI18N
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 130, 140));
 
-        jLabel5.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel5.setFont(new java.awt.Font("Gadugi", 0, 24)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Banco Primero");
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 250, 160, -1));
+        jLabel6.setFont(new java.awt.Font("Gadugi", 1, 22)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("Banco Primero");
+        jPanel2.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 230, 160, -1));
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, 240, 430));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 0, 220, 470));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel7.setFont(new java.awt.Font("Gadugi", 1, 20)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(24, 161, 24));
+        jLabel7.setText("Iniciar Sesión");
+
+        jLabel8.setFont(new java.awt.Font("Gadugi", 0, 15)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(24, 161, 24));
+        jLabel8.setText("Usuario");
+
+        jLabel9.setFont(new java.awt.Font("Gadugi", 0, 16)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(24, 161, 24));
+        jLabel9.setText("Clave");
+
+        txtUsuario.setBackground(new java.awt.Color(218, 213, 213));
+        txtUsuario.setFont(new java.awt.Font("Gadugi", 0, 13)); // NOI18N
+        txtUsuario.setForeground(new java.awt.Color(102, 102, 102));
+        txtUsuario.setBorder(null);
+
+        txtClave.setBackground(new java.awt.Color(218, 213, 213));
+        txtClave.setFont(new java.awt.Font("Gadugi", 0, 13)); // NOI18N
+        txtClave.setForeground(new java.awt.Color(102, 102, 102));
+        txtClave.setBorder(null);
+
+        cmbTipoUsuario.setBackground(new java.awt.Color(218, 213, 213));
+        cmbTipoUsuario.setFont(new java.awt.Font("Gadugi", 0, 13)); // NOI18N
+        cmbTipoUsuario.setForeground(new java.awt.Color(102, 102, 102));
+        cmbTipoUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        cmbTipoUsuario.setBorder(null);
+
+        btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btnEntrar.png"))); // NOI18N
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel9)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel7)
+                            .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtUsuario, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtClave, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(cmbTipoUsuario, javax.swing.GroupLayout.Alignment.LEADING, 0, 358, Short.MAX_VALUE))))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(165, 165, 165)
+                        .addComponent(btnEntrar)))
+                .addContainerGap(94, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel7)
+                .addGap(28, 28, 28)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtClave, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
+                .addComponent(cmbTipoUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(btnEntrar)
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, 430));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lblCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblCerrarMouseClicked
+    private void btnCerrarLoginMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarLoginMouseClicked
         String botones[] = {"Cerrar", "Cancelar"};
         int opcion = JOptionPane.showOptionDialog(this, "¿Quieres salir?", "Confirmar", 0, 0, null, botones, this);
 
@@ -169,15 +159,16 @@ public class FrmLogin extends javax.swing.JFrame {
         } else if (opcion == JOptionPane.NO_OPTION) {
             System.out.println("Cancelar");
         }
-    }//GEN-LAST:event_lblCerrarMouseClicked
+    }//GEN-LAST:event_btnCerrarLoginMouseClicked
 
-    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEntrarActionPerformed
-        if (txtUsuario.getText().isEmpty() || txtClave.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Por favor introduzca los datos");
-        } else {
-            JOptionPane.showMessageDialog(null, "Bienvenido ");
-        }
-    }//GEN-LAST:event_btnEntrarActionPerformed
+    private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        clsUsuario usuario = new clsUsuario();
+        Usuario usu = new Usuario();
+        usu.setUsuario(txtUsuario.getText());
+        usu.setPassword(txtClave.getText());
+        int tipo = 0;
+        
+    }                                         
 
     /**
      * @param args the command line arguments
@@ -208,25 +199,26 @@ public class FrmLogin extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new FrmLogin().setVisible(true);
             }
         });
     }
+        
+       
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnEntrar;
-    private javax.swing.JComboBox<String> cmbUsuario;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel btnCerrarLogin;
+    private javax.swing.JLabel btnEntrar;
+    private javax.swing.JComboBox<String> cmbTipoUsuario;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JScrollBar jScrollBar1;
-    private javax.swing.JLabel lblCerrar;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JTextField txtClave;
     private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables

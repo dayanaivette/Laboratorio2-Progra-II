@@ -5,6 +5,9 @@
  */
 package com.unab.edu.Vistas;
 
+import com.unab.edu.DAO.clsCuentasUsuario;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author dayan
@@ -14,8 +17,43 @@ public class FrmCajero extends javax.swing.JFrame {
     /**
      * Creates new form FrmCajero
      */
+    double saldo = 0;
+    Usuario user;
     public FrmCajero() {
+        
         initComponents();
+        //idUsuario = 2;
+        user=Login.usua;
+        txtUsuario.setText(user.getUsuario());
+        MostrarTransacciones();
+        setLocationRelativeTo(this);
+    
+    }
+    
+    void MostrarTransacciones() {
+        String TITULOS[] = {"SALDO", "TRANSACCIÓN", "FECHA"};
+        DefaultTableModel modeloTabla = new DefaultTableModel(null, TITULOS);
+    clsCuentasUsuario transacciones = new clsCuentasUsuario();
+        var listado = transacciones.Transacciones(user);
+        String filas[] = new String[3];
+        double abonos = 0;
+        double cargos = 0;
+        for (var iterarDatos : listado) {
+            filas[0] = String.valueOf(iterarDatos.getSaldo());
+            if (iterarDatos.getTransaccion() == 1) {
+                filas[1] = "Abono";
+                abonos += iterarDatos.getSaldo();
+            } else {
+                filas[1] = "Cargo";
+                cargos += iterarDatos.getSaldo();
+            }
+            filas[2] = String.valueOf(iterarDatos.getFecha());
+            //Agregar a la fila
+            modeloTabla.addRow(filas);
+        }
+        saldo = abonos - cargos;
+        tbTransacciones.setModel(modeloTabla);
+        lblSaldo.setText(String.valueOf(saldo));
     }
 
     /**
@@ -27,17 +65,88 @@ public class FrmCajero extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel2 = new javax.swing.JPanel();
+        btnCerrarAdmin = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        lblSaldo = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbTransacciones = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(true);
+        setUndecorated(true);
+
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        btnCerrarAdmin.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/cerrar(3).png"))); // NOI18N
+        jPanel2.add(btnCerrarAdmin, new org.netbeans.lib.awtextra.AbsoluteConstraints(354, 0, 26, 36));
+
+        jLabel1.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(24, 161, 24));
+        jLabel1.setText("Sacar Dinero");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 42, -1, -1));
+
+        jTextField1.setBackground(new java.awt.Color(218, 213, 213));
+        jTextField1.setFont(new java.awt.Font("Gadugi", 0, 13)); // NOI18N
+        jTextField1.setBorder(null);
+        jPanel2.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(84, 68, 212, 30));
+
+        jLabel2.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(24, 161, 24));
+        jLabel2.setText("Saldo Disponible:");
+        jPanel2.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 170, -1, -1));
+
+        lblSaldo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lblSaldo.setForeground(new java.awt.Color(24, 161, 24));
+        lblSaldo.setText("$");
+        jPanel2.add(lblSaldo, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 30, 20));
+
+        jLabel4.setFont(new java.awt.Font("Gadugi", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(24, 161, 24));
+        jLabel4.setText("Historial de Movimientos");
+        jPanel2.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 230, -1, -1));
+
+        jScrollPane1.setBackground(new java.awt.Color(24, 161, 24));
+
+        tbTransacciones.setAutoCreateRowSorter(true);
+        tbTransacciones.setFont(new java.awt.Font("Gadugi", 0, 12)); // NOI18N
+        tbTransacciones.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tbTransacciones.setCellSelectionEnabled(true);
+        tbTransacciones.setEnabled(false);
+        tbTransacciones.setFocusable(false);
+        tbTransacciones.setGridColor(new java.awt.Color(24, 161, 24));
+        jScrollPane1.setViewportView(tbTransacciones);
+
+        jPanel2.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 260, 320, 120));
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btnRetirarDinero.PNG"))); // NOI18N
+        jLabel5.setText("jLabel5");
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 130, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 571, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 335, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 468, Short.MAX_VALUE)
         );
 
         pack();
@@ -79,5 +188,15 @@ public class FrmCajero extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnCerrarAdmin;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblSaldo;
+    private javax.swing.JTable tbTransacciones;
     // End of variables declaration//GEN-END:variables
 }
