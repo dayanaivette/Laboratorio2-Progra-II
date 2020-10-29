@@ -15,7 +15,7 @@ import lombok.Data;
 public class Usuario {
     private int IdUsuario;
     private String Usuario;
-    private String PassWord;
+    private String Password;
     private int TipoUsuario;
    
 
