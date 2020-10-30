@@ -98,6 +98,7 @@ public class FrmLogin extends javax.swing.JFrame {
         cmbTipoUsuario.setBorder(null);
 
         btnEntrar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btnEntrar.png"))); // NOI18N
+        btnEntrar.setName(""); // NOI18N
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
