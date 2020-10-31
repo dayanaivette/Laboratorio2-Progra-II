@@ -14,6 +14,7 @@ public class FrmAdmin extends javax.swing.JFrame {
     /**
      * Creates new form FrmAdmin
      */
+
     public FrmAdmin() {
         initComponents();
     }
@@ -70,6 +71,11 @@ public class FrmAdmin extends javax.swing.JFrame {
         cbmUsuarioAbono.setBorder(null);
 
         btnEnviar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Images/btnEnviarAbono.PNG"))); // NOI18N
+        btnEnviar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                btnEnviarMousePressed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -135,6 +141,10 @@ public class FrmAdmin extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEnviarMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnEnviarMousePressed
+        
+    }//GEN-LAST:event_btnEnviarMousePressed
 
     /**
      * @param args the command line arguments

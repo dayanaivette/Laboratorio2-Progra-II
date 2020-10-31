@@ -197,6 +197,9 @@
               <Image iconType="3" name="/Images/btnEnviarAbono.PNG"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="mousePressed" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnEnviarMousePressed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

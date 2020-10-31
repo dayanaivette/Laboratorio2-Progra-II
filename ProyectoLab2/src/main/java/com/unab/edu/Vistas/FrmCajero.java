@@ -5,6 +5,9 @@
  */
 package com.unab.edu.Vistas;
 
+import com.unab.edu.Entidades.Usuario;
+import java.sql.Date;
+
 
 /**
  *
@@ -12,6 +15,7 @@ package com.unab.edu.Vistas;
  */
 public class FrmCajero extends javax.swing.JFrame {
 
+    
     /**
      * Creates new form FrmCajero
      */
