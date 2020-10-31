@@ -115,6 +115,26 @@ public class clsUsuario {
 
         return ID;
     }
+    
+    public Usuario Login(Usuario user) {
+        Usuario usu = new Usuario();
+        try {
+            CallableStatement statement = con.prepareCall("call SP_S_Login(?,?,?);");
+            statement.setString("pUsuario", user.getUsuario());
+            statement.setString("pPass", user.getPassword());
+            statement.setInt("pTipo", user.getTipoUsuario());
+            ResultSet res = statement.executeQuery();
+            while (res.next()) {
+                usu.setIdUsuario(res.getInt("idUsuario"));
+                usu.setUsuario(res.getString("Usuario"));
+                usu.setPassword(res.getString("PassWord"));
+                usu.setTipoUsuario(res.getInt("tipoUsuario"));
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se encontró el usuario" + " Intenete de nuevo"  + e);
+        }
+        return usu;
+    }
 }
     
     

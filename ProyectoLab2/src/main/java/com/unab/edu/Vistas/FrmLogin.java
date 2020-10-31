@@ -5,6 +5,10 @@
  */
 package com.unab.edu.Vistas;
 
+import com.unab.edu.DAO.clsUsuario;
+import com.unab.edu.Entidades.Usuario;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author dayan
@@ -152,6 +156,46 @@ public class FrmLogin extends javax.swing.JFrame {
 
     private void btnEntrarActionPerformed(java.awt.event.ActionEvent evt) {                                          
         
+        clsUsuario UsuarioDao = new clsUsuario();
+        Usuario usu = new Usuario();
+        usu.setUsuario(txtUsuario.getText());
+        usu.setPassword(txtClave.getText());
+        int tipo = 0;
+        if (!usu.getUsuario().isEmpty() && !usu.getPassword().isEmpty()) {
+            if (opcUsuario.isSelected()) {
+                tipo = 2;
+            } else if (opcAdmin.isSelected()) {
+                tipo = 1;
+            }
+            if (tipo != 0) {
+                usu.setTipoUsuario(tipo);
+                Usuario user= new Usuario();
+                user=UsuarioDao.Login(usu);
+                if(user.getUsuario()!=null){
+                    JOptionPane.showMessageDialog(null, "BIENVENIDO " + user.getUsuario());
+                }else{
+                    JOptionPane.showMessageDialog(null, "No se encontró el usuario" + "Intente de nuevo");
+                }
+                usu=user;
+                if (user.getTipoUsuario() == 1) {
+                    
+                    FrmCajero frmcajero = new FrmCajero();
+                    frmcajero.setVisible(true);
+                    this.hide();
+                } else if(user.getTipoUsuario() == 2){
+                    
+                    
+                    FrmAdmin frmadmin = new FrmAdmin();
+                    frmadmin.setVisible(true);
+                    this.hide();
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Complete los campos");
+            }
+        } else {
+
+            JOptionPane.showMessageDialog(null, "Complete los campos");
+        }
         
     }                                         
 
